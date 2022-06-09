@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const fetch = require('node-fetch');
 const cors = require('cors');
+const res = require('express/lib/response');
 
 dotenv.config();
 
@@ -22,6 +23,9 @@ const getParamsFormat = (config) => {
   return `?${params}`;
 };
 
+app.get('/', () => {
+  res.send({ data: { home: true } });
+});
 app.get('/api/githubLogin', async (req, res) => {
   try {
     const { code } = req.query;
