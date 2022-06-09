@@ -23,9 +23,6 @@ const getParamsFormat = (config) => {
   return `?${params}`;
 };
 
-app.get('/', () => {
-  res.send({ data: { home: true } });
-});
 app.get('/api/githubLogin', async (req, res) => {
   try {
     const { code } = req.query;
@@ -52,7 +49,7 @@ app.get('/api/githubLogin', async (req, res) => {
     });
     const userData = await userRequest.json();
 
-    res.send({ data: { avatarUrl: userData.avatar_url } });
+    res.send({ avatarUrl: userData.avatar_url });
   } catch (error) {
     res.send({
       error: error.message,
