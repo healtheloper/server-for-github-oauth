@@ -2,7 +2,6 @@ const express = require('express');
 const dotenv = require('dotenv');
 const fetch = require('node-fetch');
 const cors = require('cors');
-const res = require('express/lib/response');
 
 dotenv.config();
 
